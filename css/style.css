@@ -1,0 +1,54 @@
+/*RESET*/
+*{
+	margin:0;
+	padding:0;
+}
+img{
+	border:none;
+}
+input{
+	
+	border:none;
+}
+ul{
+    list-style: none;
+}
+h1, h2, h3, h4, h5, h6{
+    font-weight: normal;
+}
+input,select,option{
+	outline:0;
+	border:0;
+}
+a{
+    text-decoration: none;
+}
+
+/*STYLE*/
+body{
+	background: #717171;
+}
+#wrapper{
+	width: 600px;
+	margin:0 auto;
+}
+.demo{
+	margin:20px 0;
+}
+.progressbar{
+	background: #2C2C2C;
+	width:250px;
+	height: 15px;
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	border-radius: 7px;
+}
+.inner-progress{
+	background: #64B82D;
+	width: 0%;
+	height: 100%;
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	border-radius: 7px;
+}
+

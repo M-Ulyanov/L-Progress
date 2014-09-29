@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Прогресс загрузки</title>
+<link href="css/style.css" type="text/css" rel="stylesheet">
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/jquery.lprogress.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#progressbar').lprogress({
+			loadReady : true,
+		});
+		
+		$('#progressbar-2').lprogress({
+		});
+	})
+</script>
+</head>
+<body>
+	<div id="wrapper">
+		<div class="demo">
+			<h3>Автозапуск при загрузке страницы</h3>
+			<div id="progressbar"></div>
+		</div>
+		<div class="demo">
+			<h3>С параметрами</h3>
+			<div id="progressbar-2"></div>
+			<a href="#" class="progressbar-step" data-step="10" data-init="progressbar-2">Увеличить</a>
+		</div>
+	</div>
+</body>
+</html>
