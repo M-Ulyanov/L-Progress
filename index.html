@@ -14,6 +14,10 @@
 		
 		$('#progressbar-2').lprogress({
 		});
+
+		$('#progressbar-3').lprogress({
+			startValue: 10,
+		});
 	})
 </script>
 </head>
@@ -26,7 +30,12 @@
 		<div class="demo">
 			<h3>С параметрами</h3>
 			<div id="progressbar-2"></div>
-			<a href="#" class="progressbar-step" data-step="10" data-init="progressbar-2">Увеличить</a>
+			<a href="#" class="progressbar-step" data-step="30" data-init="progressbar-2">Увеличить</a>
+		</div>
+		<div class="demo">
+			<h3>Изначально 10%</h3>
+			<div id="progressbar-3"></div>
+			<a href="#" class="progressbar-step" data-step="10" data-init="progressbar-3">Увеличить</a>
 		</div>
 	</div>
 </body>

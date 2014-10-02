@@ -45,10 +45,19 @@ body{
 }
 .inner-progress{
 	background: #64B82D;
+	display: inline-block;
+	position: relative;
 	width: 0%;
 	height: 100%;
 	-moz-border-radius: 7px;
 	-webkit-border-radius: 7px;
 	border-radius: 7px;
+}
+.number-percent{
+	position: absolute;
+	right: 0;
+	top: 0;
+	font-size: 13px;
+	color: #FFF;
 }
 
