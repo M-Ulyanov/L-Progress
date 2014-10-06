@@ -9,14 +9,7 @@
 		animateSpeed : 1000,
 		decimals: 0,
 		}, options);
-		
-		// Глобальные переменные
-		var globalStep = 0,
-			self = this;
-
-		console.log(defaults)
-
-		
+				
 		return this.each(function() {
 		
 			// Переменные	
@@ -25,21 +18,15 @@
 				buttonstep = $('.progressbar-step'),
 				numberPercent = $('<span class="number-percent">');
 				
-			//	Вставка элементов в Dom
+			// Вставка элементов в Dom
 			$(progress).addClass('progressbar').append(line);
 			$(line).append(numberPercent);
 
-			// Установка начального значения
-			$(line).css('width', defaults.startValue + '%');
 
-			// Функция автозагрузки
-			if(defaults.loadReady){
-				$(line).animate({
-					width: '100%'
-				}, defaults.animateSpeed);
-
+			// Функция анимации чисел
+			function numberAnimate(param){			
 				$(line).find(numberPercent).animate({ 
-					num: defaults.maxValue,
+					num: param,
 				}, 
 				{ duration: defaults.animateSpeed,
 					    step: function (num){
@@ -48,37 +35,48 @@
 				});
 			};
 
-			if(defaults.startValue != 0){
-				
-			}
+			// Функция автозагрузки
+			if(defaults.loadReady){
+				$(line).animate({
+					width: '100%'
+				}, defaults.animateSpeed);
 
+				numberAnimate(defaults.maxValue);
+			};
+
+			// Установка начального значения
+			if(defaults.startValue != 0){
+				$(line).animate({
+					width : defaults.startValue + '%'
+				}, defaults.animateSpeed);
+
+				numberAnimate(defaults.startValue);
+			};
 			
 			// При клике на элементы управления
 			$('.progressbar-step').on('click', function(event){
 				var dataStep = parseInt($(this).attr('data-step')),
-				dataInit = $(this).attr('data-init'),
-				elem = $('#' + dataInit).find('.inner-progress');
+					dataInit = $(this).attr('data-init'),
+					elem = $('#' + dataInit).find('.inner-progress');
+					thisWidth = $(elem).width(),
+					allWidth = $(elem).parent('.progressbar').width();
 
-				if(defaults.startValue != 0 && globalStep == 0){
-					console.log(defaults.startValue)
-					globalStep = defaults.startValue;
-				}
-				
+				var globalStep = thisWidth / allWidth * 100;
 				globalStep += dataStep;
 
 				if(globalStep > defaults.maxValue)
 					globalStep = defaults.maxValue;
 				
 				// Анимация полоски и чисел	
-				$(elem).stop(true).animate({
+				$(elem).stop().animate({
 					width: globalStep + '%',
 				}, defaults.animateSpeed);
 
-				$(elem).find(numberPercent).stop(true).animate({ 
+				$(elem).find(numberPercent).stop().animate({ 
 					num: globalStep
 				}, 
 				{ duration: defaults.animateSpeed,
-					    step: function (num){
+					   	step: function (num){
 					        this.innerHTML = (num).toFixed(defaults.decimals) + '%'
 	    			}
 				});
