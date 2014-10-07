@@ -13,29 +13,46 @@
 		});
 		
 		$('#progressbar-2').lprogress({
+			color: '41A3EC'
 		});
 
 		$('#progressbar-3').lprogress({
-			startValue : 10
+			startValue : 20,
+			color: 'FEA211'
 		});
 	})
 </script>
 </head>
 <body>
+	<header>
+		<h1>Демонстрация плагина lprogress</h1>
+	</header>
 	<div id="wrapper">
 		<div class="demo">
-			<h3>Автозапуск при загрузке страницы</h3>
+			<h3>Автозапуск при загрузке страницы:</h3>
 			<div id="progressbar"></div>
 		</div>
 		<div class="demo">
-			<h3>С параметрами</h3>
+			<h3>С параметрами:</h3>
 			<div id="progressbar-2"></div>
-			<a href="#" class="progressbar-step" data-step="30" data-init="progressbar-2">Увеличить</a>
+			<div class="progress-button">
+				<a href="#" class="progressbar-step" data-step="0" data-init="progressbar-2">Reset</a>
+				<a href="#" class="progressbar-step" data-step="-15" data-init="progressbar-2">-15%</a>
+				<a href="#" class="progressbar-step" data-step="-30" data-init="progressbar-2">-30%</a>
+				<a href="#" class="progressbar-step" data-step="15" data-init="progressbar-2">+15%</a>
+				<a href="#" class="progressbar-step" data-step="30" data-init="progressbar-2">+30%</a>
+			</div>
 		</div>
 		<div class="demo">
-			<h3>Изначально 10%</h3>
+			<h3>Изначально 20%:</h3>
 			<div id="progressbar-3"></div>
-			<a href="#" class="progressbar-step" data-step="10" data-init="progressbar-3">Увеличить</a>
+			<div class="progress-button">
+				<a href="#" class="progressbar-step" data-step="0" data-init="progressbar-3">Reset</a>
+				<a href="#" class="progressbar-step" data-step="-15" data-init="progressbar-3">-15%</a>
+				<a href="#" class="progressbar-step" data-step="-30" data-init="progressbar-3">-30%</a>
+				<a href="#" class="progressbar-step" data-step="15" data-init="progressbar-3">+15%</a>
+				<a href="#" class="progressbar-step" data-step="30" data-init="progressbar-3">+30%</a>
+			</div>
 		</div>
 	</div>
 </body>

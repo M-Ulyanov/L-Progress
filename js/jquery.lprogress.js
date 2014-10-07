@@ -6,8 +6,10 @@
 		loadReady : false,
 		startValue: 0,
 		maxValue: 100,
-		animateSpeed : 1000,
+		animateSpeed : 800,
 		decimals: 0,
+		width: 300,
+		color: '64B82D',
 		}, options);
 				
 		return this.each(function() {
@@ -22,6 +24,17 @@
 			$(progress).addClass('progressbar').append(line);
 			$(line).append(numberPercent);
 
+			// Установки ширины и цвета
+			var firstLetter = defaults.color.charAt(0);
+			if(firstLetter != '#')
+				defaults.color = '#' + defaults.color;
+
+			$(this).css({
+				width: defaults.width,
+			})
+				.find(line).css({
+					background: defaults.color
+				})
 
 			// Функция анимации чисел
 			function numberAnimate(param){			
@@ -66,6 +79,9 @@
 
 				if(globalStep > defaults.maxValue)
 					globalStep = defaults.maxValue;
+
+				if(dataStep == 0)
+					globalStep = 0;
 				
 				// Анимация полоски и чисел	
 				$(elem).stop().animate({
